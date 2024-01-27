@@ -88,7 +88,6 @@ const items = ref([
 
 onMounted(() => {
   const cards = document.querySelectorAll('.box');
-  console.log(cards);
   cards.forEach((card, index) => {
     gsap.to(card, {
       opacity: 1,

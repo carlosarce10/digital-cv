@@ -1,16 +1,20 @@
 <script setup>
-import HeaderVue from './components/Header.vue';
+import PersonalInfo from './components/PersonalInfo.vue';
 import WorkExperience from './components/WorkExperience.vue';
-import testVue from './components/test.vue';
+import test from './components/test.vue';
+import Skills from './components/Skills.vue';
+import test2Vue from './components/WorkExperience.vue';
 
 </script>
 
 <template>
-  <HeaderVue />
-  <testVue />
-  <!-- <WorkExperience /> -->
+  <PersonalInfo />
+  <WorkExperience />
+  <!-- <test2Vue /> -->
+  <Skills />
 </template>
 
-<style scoped></style>
+<style>
+</style>
 
 
