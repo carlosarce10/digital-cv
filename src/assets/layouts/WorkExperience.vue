@@ -1,7 +1,5 @@
 <template>
-  <div class="work-experience-container">
-    <h1 class="work-experience-title">Experiencia laboral</h1>
-  </div>
+  <TitleComponent />
   <div ref="cardContainer" class="cards-container">
     <div v-for="(card, index) in cards" :key="index" class="card-wrapper">
       <div class="card-contents">
@@ -23,8 +21,12 @@
 import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TitleComponent from '../../components/TitleComponent.vue';
 
 export default {
+  components: {
+    TitleComponent, // Register TitleComponent in the components option
+  },
   setup() {
     const cardContainer = ref(null);
     // Variables
@@ -152,14 +154,14 @@ export default {
       });
     };
     const textAnimation = () => {
-      gsap.from('.card-description', {
+      gsap.from('.card-contents', {
         opacity: 0,
         y: 30,
         duration: 1,
         delay: 0.5,
         stagger: 0.2,
         scrollTrigger: {
-          trigger: '.card-description',
+          trigger: '.card-contents',
           start: 'top 100%',
           end: 'bottom 20%',
           toggleActions: 'restart none none reverse'
@@ -169,7 +171,7 @@ export default {
 
       
     onMounted(() => {
-      cardsAnimation();
+      /* cardsAnimation(); */
       textAnimation();
     });
 
@@ -193,11 +195,12 @@ export default {
   margin: 25px auto;
   padding: 0;
   border-radius: 10px;
+  z-index: 1;
   .card-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin: 50px 0px;
   }
   
   .card-contents {
@@ -243,24 +246,6 @@ img {
   p {
     font-size: 14px;
     font-weight: 400;
-  }
-}
-.work-experience-container {
-  background: url('/src/assets/svg/background-profile.svg') no-repeat center center fixed;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  width: 40%;
-  height: auto;
-  margin: 25px auto;
-  padding: 0;
-  border-radius: 10px;
-  .work-experience-title {
-    padding: 25px;
-    background-color: #272c56;
-    mix-blend-mode: screen;
-    margin: 30px;
-    border-radius: 10px;
   }
 }
 /* .work-experience-title {
